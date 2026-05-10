@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>無人載具研究中心 | 大同大學資訊工程學系</title>
+    <title>無人載具研究中心 | 大同大學資工系</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #003366;
             --secondary-color: #007BFF;
             --accent-color: #FF9900;
-            --bg-color: #f8f9fa;
+            --bg-color: #f4f7f6;
             --text-color: #333;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -24,7 +25,7 @@
             background-color: var(--bg-color);
         }
 
-        /* 頂部主視覺區 */
+        /* 網頁主視覺區 (Hero Section) */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -36,6 +37,10 @@
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
         header p {
@@ -46,50 +51,166 @@
 
         /* 內容容器 */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1100px;
+            margin: -30px auto 0 auto;
+            /* 讓內容稍微往上浮動堆疊在 Header 上 */
             padding: 2rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* 區塊樣式 */
+        /* 共用區塊樣式 */
         section {
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s ease;
         }
 
         section:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         h2 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
             padding-bottom: 0.5rem;
-            display: flex;
+            margin-top: 0;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* 重點列表樣式 */
+        /* 圖片容器：全面架構資訊圖專用 (16:9 不拉伸) */
+        .img-container-architecture {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .img-container-architecture img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* 保證資訊圖完整呈現 */
+        }
+
+        /* 一般圖片容器 (UGV / UAV) */
+        .img-container {
+            width: 100%;
+            height: auto;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 區塊二：團隊介紹 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            margin-top: 1.5rem;
+        }
+
+        .member-photo {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            object-fit: cover;
+            aspect-ratio: 3 / 4;
+        }
+
+        .member-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .member-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #f0f7ff;
+            border: 1px solid var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 區塊三：核心技術領域 */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-card {
+            padding: 2rem;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            background: #fafcff;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+            background: #ffffff;
+        }
+
+        .tech-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        /* 重點列表樣式 (UGV / UAV) */
         .feature-list {
             list-style: none;
             padding: 0;
         }
 
         .feature-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
             position: relative;
+            font-size: 1.05rem;
         }
 
         .feature-list li i {
             position: absolute;
             left: 0;
             top: 4px;
+            font-size: 1.2rem;
             color: var(--accent-color);
         }
 
@@ -98,30 +219,68 @@
             color: var(--primary-color);
         }
 
-        /* 修訂後的圖片容器，以支持 16:9 比例且不拉伸 */
-        .img-container {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            /* 強制 16:9 比例 */
-            background-color: #e9ecef;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            font-size: 1.2rem;
-            overflow: hidden;
+        /* 區塊六：研究成果展示 */
+        .achievement-group {
+            margin-top: 2rem;
         }
 
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* 改為 contain 以確保整個資訊圖都完整顯示，不裁剪 */
+        .achievement-group h3 {
+            color: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 1.5rem;
         }
 
-        /* 按鈕樣式 */
+        .achievement-item {
+            background: #fafafa;
+            border-left: 3px solid #ccc;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: 0.3s;
+        }
+
+        .achievement-item:hover {
+            border-left-color: var(--secondary-color);
+            background: #f0f7ff;
+        }
+
+        .achievement-item p {
+            margin: 0.5rem 0 0 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .badge.patent {
+            background: #28a745;
+        }
+
+        .badge.journal {
+            background: #dc3545;
+        }
+
+        .badge.conf {
+            background: #17a2b8;
+        }
+
+        .badge.oral {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        /* 按鈕與提示 */
         .btn-group {
             margin-top: 1.5rem;
             display: flex;
@@ -133,7 +292,7 @@
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
@@ -151,25 +310,42 @@
             border-radius: 5px;
             border-left: 5px solid #ffeeba;
             font-style: italic;
+            margin-top: 1rem;
         }
 
         /* 頁尾 */
         footer {
             text-align: center;
-            padding: 2rem;
-            background-color: #343a40;
+            padding: 3rem 2rem;
+            background-color: #2c3e50;
             color: white;
-            margin-top: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
         }
 
         /* 響應式設計 */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .member-photo {
+                width: 60%;
+                margin: 0 auto;
+                display: block;
             }
 
             .container {
                 padding: 1rem;
+                margin-top: 0;
             }
 
             section {
@@ -182,45 +358,90 @@
 <body>
 
     <header>
-        <h1><i class="fa-solid fa-rocket"></i> 大同大學資訊工程學系｜無人載具研究中心</h1>
+        <h1><i class="fa-solid fa-rocket"></i> 大同大學資訊工程系｜無人載具研究中心<br><span
+                style="font-size: 0.6em; opacity: 0.8;">(Unmanned Vehicles Research Center)</span></h1>
         <p>啟動智慧，領航未來：人工智慧與自主系統開發的創新搖籃</p>
     </header>
 
     <div class="container">
+
         <section>
-            <h2><i class="fa-solid fa-lightbulb"></i> 研究中心簡介：跨越軟硬體邊界的系統整合基地</h2>
-            <p>本中心聚焦於<strong>「智慧感知」</strong>與<strong>「自主控制」</strong>兩大核心，致力於開發能在複雜環境中執行精準導航與作業的頂尖無人系統。我們秉持「理論與實作並重」的教學模式，帶領學生打破硬體開發與軟體演算法的界線，從底層邏輯到高階
+            <h2>💡 研究中心簡介</h2>
+            <p>本中心聚焦於<strong>「智慧感知」</strong>與<strong>「自主控制」</strong>兩大核心，致力於開發能在複雜環境中執行精準導航與作業的頂尖無人系統。我們秉持「理論與實作並重」的跨領域教學理念，帶領學生打破硬體開發與軟體演算法的界線，從底層邏輯到高階
                 AI，培育具備全端系統整合能力的次世代科技人才。</p>
-            <div class="img-container">
-                <img src="uv_image_0.png" alt="大同大學無人載具研究中心全面架構資訊圖">
+
+            <div class="img-container-architecture">
+                <img src="80f9ed35-7651-400b-9212-5f03b68c8518.png" alt="無人載具研究中心全面架構與發展藍圖">
             </div>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-car-side"></i> 智慧自走車實踐：打造專屬的自動駕駛系統</h2>
+            <h2>👥 中心團隊介紹</h2>
+            <div class="team-grid">
+                <img src="file_000000007494720990f1df4b401ea189.png" alt="卓世明副教授" class="member-photo">
+                <div class="member-info">
+                    <h3>主持人：卓世明 副教授 (Shih-Ming Cho)</h3>
+                    <div class="member-tags">
+                        <span class="tag">AIoT 系統架構</span>
+                        <span class="tag">嵌入式系統開發</span>
+                        <span class="tag">影像辨識應用</span>
+                        <span class="tag">智慧農林漁牧</span>
+                    </div>
+                    <p>卓世明老師致力於將 AIoT
+                        跨領域技術落實於具體之「智慧防護系統」，透過軟硬體高度整合，開發具備商品化量能之無人化解決方案。目前研究主軸聚焦於多重定位導航、異質感測融合技術以及無人機與地面感測節點之協同防護網路。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>⚙️ 核心技術領域</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>多重感知與影像辨識</h3>
+                    <p>運用 <strong>RGB-T 異質融合技術</strong> 及 <strong>Amodal Generative
+                            Augmentation</strong>，在複雜且具遮蔽的環境中，實現精準的靈長類動物偵測與辨識能力。</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>協同防護網路</h3>
+                    <p>建立 <strong>單機無人機 (UAV) 與地面感測網路 (GSN)</strong> 的無縫協同架構，落實農漁牧場域之全方位即時防護與監控。</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>智慧自動化控制</h3>
+                    <p>基於 STM32 控制核心與 RTOS 實時作業系統，開發具備自動化清洗功能之智慧魚菜共生系統，以及高效能之聲光驅趕裝置。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚗 智慧自走車實踐</h2>
             <p>從基礎的馬達驅動到複雜的 AI 視覺辨識，這是一場從零到一的自造旅程。學生將在這裡親手打造具備「動態避障」與「路徑尋優」能力的智慧自走載具。</p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-eye"></i> <span class="highlight">多感測器融合應用 (Multi-sensor Fusion)：</span> 完美結合
-                    LiDAR 光學雷達與 Vision 電腦視覺，建構精準的環境感知能力。</li>
-                <li><i class="fa-solid fa-microchip"></i> <span class="highlight">實時嵌入式系統 (RTOS) 控制：</span>
+                <li><i class="fa-solid fa-eye"></i> <span class="highlight">多感測器融合應用 (LiDAR/Vision)：</span>
+                    完美結合光學雷達與電腦視覺，建構精準的環境感知能力。</li>
+                <li><i class="fa-solid fa-bolt"></i> <span class="highlight">實時嵌入式系統 (RTOS) 控制：</span>
                     深入掌握微控制器資源，實現毫秒級的精準硬體控制與排程。</li>
                 <li><i class="fa-solid fa-brain"></i> <span class="highlight">人工智慧物件偵測與追蹤：</span>
                     導入邊緣運算，賦予載具聰明的雙眼與大腦，在動態環境中鎖定目標。</li>
             </ul>
 
             <div class="img-container">
-                <img src="fdf8bc33-a259-4e86-8f64-39b3efb5b11a.jpeg" alt="大同大學無人載具研究中心全面架構資訊圖">
+                <img src="fdf8bc33-a259-4e86-8f64-39b3efb5b11a.jpeg" alt="自動駕駛自走車實踐">
             </div>
 
             <div class="btn-group">
-                <a href="#" class="btn"><i class="fa-solid fa-book"></i> 課程 I6090 大綱</a>
-                <a href="#" class="btn"><i class="fa-solid fa-book-open"></i> 課程 I6180A 大綱</a>
+                <a href="https://ttucis.ttu.edu.tw/syllabus/syllabusview.php?SbjNo=I6090&SelYear=113&Semester=2&title="
+                    target="_blank" class="btn"><i class="fa-solid fa-book"></i> 課程 I6090 大綱</a>
+                <a href="https://selquery.ttu.edu.tw/Main/syllabusview.php?SbjNo=I6180A" target="_blank" class="btn"><i
+                        class="fa-solid fa-book-open"></i> 課程 I6180A 大綱</a>
             </div>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-drone"></i> 無人機開發設計：突破地表，探索三維自主任務</h2>
+            <h2>🚁 無人機開發設計</h2>
             <p>我們即將啟動進階無人機專案，帶領學生突破二維平面的限制，迎向更廣闊的「三維空間」自主飛行任務挑戰！</p>
 
             <ul class="feature-list">
@@ -233,23 +454,86 @@
             </ul>
 
             <div class="img-container">
-                <img src="UnmannedCenter1.png" alt="大同大學無人載具研究中心全面架構資訊圖">
+                <img src="uv_image_0.png" alt="無人機開發與硬體設計">
             </div>
 
             <div class="notice">
-                <i class="fa-solid fa-circle-info"></i> 💡 本進階課程與無人機專案正熱烈籌備中，敬請期待！
+                <i class="fa-solid fa-circle-info"></i> ※ 本課程積極籌備中，敬請期待。
             </div>
         </section>
+
         <section>
-            <div class="img-container">
-                <img src="80f9ed35-7651-400b-9212-5f03b68c8518.png" alt="無人載具研究中心資訊圖">
+            <h2>🏆 研究成果與成果展示</h2>
+
+            <div class="achievement-group">
+                <h3>🛡️ 專利與發明成果</h3>
+
+                <div class="achievement-item">
+                    <span class="badge patent">2026 新型專利</span>
+                    <strong>基於多重定位與協同防護之無人機自動驅趕系統</strong> (證書號：新型第 M681999 號)
+                    <p>佐證將 AIoT 跨領域技術落實於智慧防護系統之具體研發與商品化量能。</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge patent">2026 新型核准</span>
+                    <strong>農漁牧場域之智慧型聲光驅趕系統</strong> (核准案號：114212735)
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge patent">2026 發明公開</span>
+                    <strong>智慧型農地防護系統、其運作方法及用於該系統之驅避組合物</strong> (申請案號：115101247)
+                </div>
+            </div>
+
+            <div class="achievement-group">
+                <h3>📜 代表性學術論文</h3>
+
+                <div class="achievement-item">
+                    <span class="badge journal">國際期刊</span> <span class="badge">2026</span>
+                    <strong>CMC-Computers, Materials & Continua</strong>
+                    <p>"An Intelligent Orchard Anti-Damage System Combining Real-Time AI Image Recognition and
+                        Laser-Based Deterrence for Multi-Target Monkeys"</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge conf">國際研討會</span> <span class="badge">2026</span>
+                    <strong>ICCCM 2026, Tokyo</strong>
+                    <p>"Precision Detection and Identification of Macaca cyclopis in Complex Orchard Environments via
+                        Heterogeneous RGB-T Fusion and Amodal Generative Augmentation"</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge conf">國際研討會</span> <span class="badge">2026</span>
+                    <strong>BIOTC 2026, Tokyo</strong>
+                    <p>"Collaborative Single-UAV and Ground Sensor Network Architecture for Precision Primate
+                        Detection..."</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge conf">國際研討會</span> <span class="badge oral"><i
+                            class="fa-solid fa-microphone"></i> Oral Presentation</span> <span class="badge">2026</span>
+                    <strong>EESP 2026, Kobe</strong>
+                    <p>"Optimizing a Smart Aquaponics System with Automated Cleaning Functionality using AIoT
+                        Technology"</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span class="badge conf">國際研討會</span> <span class="badge journal">Eng. Proc. 發表</span> <span
+                        class="badge">2026</span>
+                    <strong>ECICE 2025, Taiwan (Published April 2026)</strong>
+                    <p>"An AI-Powered Real-Time Image Recognition System with a Laser-Based Deterrent for Primate Pest
+                        Control in Orchards"</p>
+                </div>
             </div>
         </section>
+
     </div>
 
     <footer>
-        <p>© 2026 大同大學資訊工程學系 - 無人載具研究中心</p>
-        <p style="font-size: 0.9em; opacity: 0.7;">啟動智慧，領航未來</p>
+        <p><strong>© 2026 大同大學資工系 - 無人載具研究中心</strong></p>
+        <p>啟動智慧，領航未來</p>
+        <p style="font-size: 0.9em; margin-top: 15px;"><i class="fa-solid fa-location-dot"></i> 台北市中山北路三段40號 |
+            智慧感知與自主控制實驗室</p>
     </footer>
 
 </body>
