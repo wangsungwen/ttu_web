@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無人載具研究中心 | 大同大學資工系</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007BFF;
+            --accent-color: #FF9900;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* 頂部主視覺區 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* 內容容器 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 區塊樣式 */
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 重點列表樣式 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .feature-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--accent-color);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* 修訂後的圖片容器，以支持 16:9 比例且不拉伸 */
+        .img-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            /* 強制 16:9 比例 */
+            background-color: #e9ecef;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* 改為 contain 以確保整個資訊圖都完整顯示，不裁剪 */
+        }
+
+        /* 按鈕樣式 */
+        .btn-group {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .notice {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 5px solid #ffeeba;
+            font-style: italic;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #343a40;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-rocket"></i> 大同大學資工系｜無人載具研究中心</h1>
+        <p>啟動智慧，領航未來：人工智慧與自主系統開發的創新搖籃</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2><i class="fa-solid fa-lightbulb"></i> 研究中心簡介：跨越軟硬體邊界的系統整合基地</h2>
+            <p>本中心聚焦於<strong>「智慧感知」</strong>與<strong>「自主控制」</strong>兩大核心，致力於開發能在複雜環境中執行精準導航與作業的頂尖無人系統。我們秉持「理論與實作並重」的教學模式，帶領學生打破硬體開發與軟體演算法的界線，從底層邏輯到高階
+                AI，培育具備全端系統整合能力的次世代科技人才。</p>
+            <div class="img-container">
+                <img src="uv_image_0.png" alt="大同大學無人載具研究中心全面架構資訊圖">
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-car-side"></i> 智慧自走車實踐：打造專屬的自動駕駛系統</h2>
+            <p>從基礎的馬達驅動到複雜的 AI 視覺辨識，這是一場從零到一的自造旅程。學生將在這裡親手打造具備「動態避障」與「路徑尋優」能力的智慧自走載具。</p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-eye"></i> <span class="highlight">多感測器融合應用 (Multi-sensor Fusion)：</span> 完美結合
+                    LiDAR 光學雷達與 Vision 電腦視覺，建構精準的環境感知能力。</li>
+                <li><i class="fa-solid fa-microchip"></i> <span class="highlight">實時嵌入式系統 (RTOS) 控制：</span>
+                    深入掌握微控制器資源，實現毫秒級的精準硬體控制與排程。</li>
+                <li><i class="fa-solid fa-brain"></i> <span class="highlight">人工智慧物件偵測與追蹤：</span>
+                    導入邊緣運算，賦予載具聰明的雙眼與大腦，在動態環境中鎖定目標。</li>
+            </ul>
+
+            <div class="img-container">
+                <img src="fdf8bc33-a259-4e86-8f64-39b3efb5b11a.jpeg" alt="大同大學無人載具研究中心全面架構資訊圖">
+            </div>
+
+            <div class="btn-group">
+                <a href="#" class="btn"><i class="fa-solid fa-book"></i> 課程 I6090 大綱</a>
+                <a href="#" class="btn"><i class="fa-solid fa-book-open"></i> 課程 I6180A 大綱</a>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-drone"></i> 無人機開發設計：突破地表，探索三維自主任務</h2>
+            <p>我們即將啟動進階無人機專案，帶領學生突破二維平面的限制，迎向更廣闊的「三維空間」自主飛行任務挑戰！</p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-sliders"></i> <span class="highlight">飛控系統設計：</span> 深入底層架構，自研基於 STM32
+                    晶片的飛行控制與姿態解算演算法。</li>
+                <li><i class="fa-solid fa-location-crosshairs"></i> <span class="highlight">精準定位技術：</span> 導入 UWB
+                    系統，徹底解決無 GPS 訊號下的室內精準懸停與導航難題。</li>
+                <li><i class="fa-solid fa-satellite-dish"></i> <span class="highlight">長程通訊鏈路：</span> 運用 LoRa
+                    低功耗廣域網路技術，開發達「公里級」的穩定遙測數據傳輸系統。</li>
+            </ul>
+
+            <div class="img-container">
+                <img src="UnmannedCenter1.png" alt="大同大學無人載具研究中心全面架構資訊圖">
+            </div>
+
+            <div class="notice">
+                <i class="fa-solid fa-circle-info"></i> 💡 本進階課程與無人機專案正熱烈籌備中，敬請期待！
+            </div>
+        </section>
+        <section>
+            <div class="img-container">
+                <img src="80f9ed35-7651-400b-9212-5f03b68c8518.png" alt="無人載具研究中心資訊圖">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 大同大學資工系 - 無人載具研究中心</p>
+        <p style="font-size: 0.9em; opacity: 0.7;">啟動智慧，領航未來</p>
+    </footer>
+
+</body>
+
+</html>
